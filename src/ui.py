@@ -221,9 +221,72 @@ def apply_styles() -> None:
         .login-item {{ background:#FFFFFF; border:1px solid var(--line); border-radius:11px; padding:9px 11px; color:#3E6172; font-size:.82rem; }}
 
 
-        /* Contraste y legibilidad de formularios */
-        input, textarea, [data-baseweb="select"] input {{ color:#071F31 !important; -webkit-text-fill-color:#071F31 !important; }}
-        input::placeholder, textarea::placeholder {{ color:#617B8A !important; opacity:1 !important; }}
+        /* Contraste y legibilidad de formularios en local y Community Cloud */
+        div[data-testid="stTextInput"] label,
+        div[data-testid="stTextInput"] label p,
+        div[data-testid="stTextArea"] label,
+        div[data-testid="stTextArea"] label p,
+        div[data-testid="stNumberInput"] label,
+        div[data-testid="stNumberInput"] label p,
+        div[data-testid="stSelectbox"] label,
+        div[data-testid="stSelectbox"] label p {{
+            color:#0A2940 !important;
+            -webkit-text-fill-color:#0A2940 !important;
+            opacity:1 !important;
+            font-weight:750 !important;
+        }}
+        div[data-testid="stTextInput"] div[data-baseweb="input"],
+        div[data-testid="stNumberInput"] div[data-baseweb="input"],
+        div[data-testid="stTextArea"] textarea,
+        div[data-testid="stSelectbox"] div[data-baseweb="select"] > div {{
+            background:#FFFFFF !important;
+            border-color:#9FC8D9 !important;
+            color:#071F31 !important;
+            box-shadow:none !important;
+        }}
+        div[data-testid="stTextInput"] div[data-baseweb="input"]:focus-within,
+        div[data-testid="stNumberInput"] div[data-baseweb="input"]:focus-within,
+        div[data-testid="stTextArea"] textarea:focus {{
+            border-color:#075E91 !important;
+            box-shadow:0 0 0 2px rgba(7,94,145,.16) !important;
+        }}
+        input, textarea, [data-baseweb="select"] input {{
+            background:#FFFFFF !important;
+            color:#071F31 !important;
+            -webkit-text-fill-color:#071F31 !important;
+            caret-color:#075E91 !important;
+        }}
+        input::placeholder, textarea::placeholder {{
+            color:#617B8A !important;
+            -webkit-text-fill-color:#617B8A !important;
+            opacity:1 !important;
+        }}
+        div[data-testid="stToggle"] label,
+        div[data-testid="stToggle"] label p {{
+            color:#0A2940 !important;
+            -webkit-text-fill-color:#0A2940 !important;
+            opacity:1 !important;
+            font-weight:800 !important;
+        }}
+        div[data-testid="stFormSubmitButton"] button,
+        button[data-testid="stBaseButton-primaryFormSubmit"],
+        button[data-testid="stBaseButton-primary"],
+        button[kind="primaryFormSubmit"],
+        .stButton button[kind="primary"] {{
+            background:linear-gradient(135deg,#075E91,#0A8FC2) !important;
+            border-color:#075E91 !important;
+            color:#FFFFFF !important;
+            -webkit-text-fill-color:#FFFFFF !important;
+        }}
+        div[data-testid="stFormSubmitButton"] button p,
+        button[data-testid="stBaseButton-primaryFormSubmit"] p,
+        button[data-testid="stBaseButton-primary"] p,
+        button[kind="primaryFormSubmit"] p,
+        .stButton button[kind="primary"] p {{
+            color:#FFFFFF !important;
+            -webkit-text-fill-color:#FFFFFF !important;
+            opacity:1 !important;
+        }}
         button[aria-label="Show password"], button[aria-label="Hide password"],
         button[aria-label="Mostrar contraseña"], button[aria-label="Ocultar contraseña"],
         div[data-testid="stTextInput"] button {{ display:none !important; }}
